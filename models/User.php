@@ -48,5 +48,22 @@ class User{
             echo "ERRO: " . $e->getMessage();
         }
     }
+
+    function update(){
+        $db = new DataBase();
+        try{
+            $stmt = $db->conn->prepare("UPDATE users SET name=:name,email=:email, pass=:pass WHERE id= :id");
+            $stmt->bindParam(':id' , $this->id);
+            $stmt->bindParam(':name' , $this->name);
+            $stmt->bindParam(':email' , $this->email);
+            $stmt->bindParam(':pass' , $this->pass);
+            $stmt->execute();
+
+            echo "Update feito com sucesso!";
+
+        }catch(PDOException $e) {
+            echo "ERRO: " . $e->getMessage();
+        }
+    }
 }
 ?>

@@ -28,11 +28,11 @@ if(isset($route[1]) && $route[1] != ''){
         $user = new User($id, null, null, null);         
         $user->selectById();
     }else{
-        echo 'Página não encontrada';
+        echo 'ERRO 404 - Página não encontrada';
     }
 
 }else{
-    echo 'Página não encontrada';
+    echo 'ERRO 404 - Página não encontrada';
 }
 
 //require('models/User.php'); -> linka o arquivo no models User

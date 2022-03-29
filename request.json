@@ -1,0 +1,118 @@
+{
+  "version": 6,
+  "entities": [
+    {
+      "entity": {
+        "type": "Project",
+        "id": "335f853c-e503-45cf-9758-d0d875d5f755",
+        "name": "Estudo api"
+      },
+      "children": [
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "multipart/form-data",
+                "items": [
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "name",
+                    "value": ""
+                  },
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "email",
+                    "value": ""
+                  },
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "pass",
+                    "value": ""
+                  }
+                ]
+              },
+              "bodyType": "Form"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost",
+              "path": "/LP2/api/user/create"
+            },
+            "id": "d752c680-52f5-4502-b411-23d12f3d5cc5",
+            "name": "user-create",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "multipart/form-data"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "multipart/form-data",
+                "items": [
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "id",
+                    "value": ""
+                  }
+                ]
+              },
+              "bodyType": "Form"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost",
+              "path": "/LP2/api/user/delete"
+            },
+            "id": "4d8951e3-0242-419e-9bf7-c31570dabca5",
+            "name": "user-delete",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "multipart/form-data"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

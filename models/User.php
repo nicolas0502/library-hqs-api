@@ -78,13 +78,13 @@ class User{
         }
     }
 
-    function select(){
+    function selectById(){
         $db = new DataBase();
         try{
             $stmt = $db->conn->prepare("SELECT name, email, pass FROM users WHERE id=:id");
             $stmt->bindParam(':id' , $this->id);
             $stmt->execute();
-            $result= $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $result= $stmt->fetch(PDO::FETCH_ASSOC);
             print_r($result);
         }catch(PDOException $e) {
             echo "ERRO: " . $e->getMessage();

@@ -26,7 +26,7 @@ if(isset($route[1]) && $route[1] != ''){
     }elseif($route[1] == 'select'){
         $id = $_POST['id'];
         $user = new User($id, null, null, null);         
-        $user->select();
+        $user->selectById();
     }else{
         echo 'Página não encontrada';
     }

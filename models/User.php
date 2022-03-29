@@ -65,5 +65,32 @@ class User{
             echo "ERRO: " . $e->getMessage();
         }
     }
+
+    function selectAll(){
+        $db = new DataBase();
+        try{
+            $stmt = $db->conn->prepare("SELECT * FROM users");
+            $stmt->execute();
+            $result= $stmt->fetchAll(PDO::FETCH_ASSOC);
+            print_r($result);
+        }catch(PDOException $e) {
+            echo "ERRO: " . $e->getMessage();
+        }
+    }
+
+    function select(){
+        $db = new DataBase();
+        try{
+            $stmt = $db->conn->prepare("SELECT name, email, pass FROM users WHERE id=:id");
+            $stmt->bindParam(':id' , $this->id);
+            $stmt->execute();
+            $result= $stmt->fetchAll(PDO::FETCH_ASSOC);
+            print_r($result);
+        }catch(PDOException $e) {
+            echo "ERRO: " . $e->getMessage();
+        }
+    }
+
+
 }
 ?>

@@ -18,8 +18,15 @@ if(isset($route[1]) && $route[1] != ''){
         $name = $_POST['name'];
         $email = $_POST['email'];
         $pass = $_POST['pass'];
-        $user = new User($id, $name, $email, $pass);         //adiciona em uma variavel os dados para delete
+        $user = new User($id, $name, $email, $pass);   
         $user->update();
+    }elseif($route[1] == 'select-all'){
+        $user = new User(null, null, null, null);       
+        $user->selectAll();
+    }elseif($route[1] == 'select'){
+        $id = $_POST['id'];
+        $user = new User($id, null, null, null);         
+        $user->select();
     }else{
         echo 'Página não encontrada';
     }

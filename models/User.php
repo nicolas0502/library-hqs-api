@@ -108,7 +108,8 @@ class User{
             $stmt->bindParam(':id' , $this->id);
             $stmt->execute();
             $result= $stmt->fetch(PDO::FETCH_ASSOC);
-            print_r($result);
+            $response = new Output();
+            $response->out($result);
         }catch(PDOException $e) {
             $result['message'] = "Error Select By ID: " . $e->getMessage();
             $response= new Output();

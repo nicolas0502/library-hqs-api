@@ -7,7 +7,7 @@ if(isset($route[1]) && $route[1] != ''){
         $email= $_POST['email'];
         $pass= $_POST['pass'];
         
-        $user = new User(null,$name,$email,$pass );     //adiciona em uma variavel os dados para cadastro
+        $user = new User(null,$name,$email,$pass);       //adiciona em uma variavel os dados para cadastro
         $user->create();                                // chama a function create para criar o usuario
     }elseif($route[1] == 'delete'){
         $id = $_POST['id'];
@@ -28,11 +28,15 @@ if(isset($route[1]) && $route[1] != ''){
         $user = new User($id, null, null, null);         
         $user->selectById();
     }else{
-        echo 'ERRO 404 - Página não encontrada';
+        $result['message'] = "404 - Rota da API não encontrada";
+        $response = new Output();
+        $response->out($result, 404);;
     }
 
 }else{
-    echo 'ERRO 404 - Página não encontrada';
+    $result['message'] = "404 - Rota da API não encontrada";
+    $response = new Output();
+    $response->out($result, 404);
 }
 
 //require('models/User.php'); -> linka o arquivo no models User

@@ -123,79 +123,8 @@
             "body": {
               "formBody": {
                 "overrideContentType": true,
-                "encoding": "application/x-www-form-urlencoded",
-                "items": [
-                  {
-                    "enabled": true,
-                    "type": "Text",
-                    "name": "id",
-                    "value": "1"
-                  }
-                ]
-              },
-              "bodyType": "Form"
-            },
-            "uri": {
-              "query": {
-                "delimiter": "&",
-                "items": []
-              },
-              "scheme": {
-                "name": "http",
-                "version": "V11"
-              },
-              "host": "localhost",
-              "path": "/LP2/api/user/select"
-            },
-            "id": "9234f6bd-5091-40c8-a289-84297df221c5",
-            "name": "user-select",
-            "headers": [
-              {
-                "enabled": true,
-                "name": "Content-Type",
-                "value": "application/x-www-form-urlencoded"
-              }
-            ]
-          }
-        },
-        {
-          "entity": {
-            "type": "Request",
-            "method": {
-              "requestBody": true,
-              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
-              "name": "POST"
-            },
-            "body": {
-              "formBody": {
-                "overrideContentType": true,
                 "encoding": "multipart/form-data",
-                "items": [
-                  {
-                    "enabled": true,
-                    "type": "Text",
-                    "name": "id",
-                    "value": ""
-                  },
-                  {
-                    "enabled": true,
-                    "type": "Text",
-                    "name": "name",
-                    "value": ""
-                  },
-                  {
-                    "enabled": true,
-                    "type": "Text",
-                    "name": "email",
-                    "value": ""
-                  },
-                  {
-                    "enabled": true,
-                    "type": "Text",
-                    "name": "pass",
-                    "value": ""
-                  }
-                ]
+                "items": []
               },
               "bodyType": "Form"
             },
@@ -218,6 +147,52 @@
                 "enabled": true,
                 "name": "Content-Type",
                 "value": "multipart/form-data"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": [
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "id",
+                    "value": ""
+                  }
+                ]
+              },
+              "bodyType": "Form"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost",
+              "path": "/LP2/api/user/select"
+            },
+            "id": "9234f6bd-5091-40c8-a289-84297df221c5",
+            "name": "user-select-by-id",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
               }
             ]
           }

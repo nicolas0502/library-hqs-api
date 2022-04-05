@@ -11,10 +11,14 @@ if(isset($route[1]) && $route[1] != ''){
         $product = new Product(1,'Sapato',22,' ');// adiciona em variavel os dados para deletar
         $product->delete(); // chama a function delete para deletar o produto
     }else{
-        echo 'Página não encontrada';
+        $result['message'] = "404 - Rota da API não encontrada";
+        $response = new Output();
+        $response->out($result, 404);
     }
 
 }else{
-    echo 'Página não encontrada';
+    $result['message'] = "404 - Rota da API não encontrada";
+    $response = new Output();
+    $response->out($result, 404);
 }
 ?>

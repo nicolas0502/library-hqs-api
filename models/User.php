@@ -1,6 +1,4 @@
 <?php
-require ('helpers/database.php');
-
 class User{
     //Propriedades
     public $id;
@@ -31,7 +29,9 @@ class User{
             echo "Cadastrado com sucesso!";
 
         }catch(PDOException $e) {
-            echo "ERRO: " . $e->getMessage();
+            $result['message'] = "Error Create: " . $e->getMessage();
+            $response= new Output();
+            $response->out($result, 500); 
         }
     }
 
@@ -45,7 +45,9 @@ class User{
             echo "Deletado com sucesso!";
 
         }catch(PDOException $e) {
-            echo "ERRO: " . $e->getMessage();
+            $result['message'] = "Error Delete: " . $e->getMessage();
+            $response= new Output();
+            $response->out($result, 500); 
         }
     }
 
@@ -62,7 +64,9 @@ class User{
             echo "Update feito com sucesso!";
 
         }catch(PDOException $e) {
-            echo "ERRO: " . $e->getMessage();
+            $result['message'] = "Error Update: " . $e->getMessage();
+            $response= new Output();
+            $response->out($result, 500); 
         }
     }
 
@@ -72,9 +76,13 @@ class User{
             $stmt = $db->conn->prepare("SELECT * FROM users");
             $stmt->execute();
             $result= $stmt->fetchAll(PDO::FETCH_ASSOC);
-            print_r($result);
+
+            $response = new Output();
+            $response->out($result);
         }catch(PDOException $e) {
-            echo "ERRO: " . $e->getMessage();
+            $result['message'] = "Error Select All User: " . $e->getMessage();
+            $response= new Output();
+            $response->out($result, 500);        
         }
     }
 
@@ -87,7 +95,9 @@ class User{
             $result= $stmt->fetch(PDO::FETCH_ASSOC);
             print_r($result);
         }catch(PDOException $e) {
-            echo "ERRO: " . $e->getMessage();
+            $result['message'] = "Error Select By ID: " . $e->getMessage();
+            $response= new Output();
+            $response->out($result, 500); 
         }
     }
 

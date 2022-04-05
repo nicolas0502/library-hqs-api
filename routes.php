@@ -8,21 +8,16 @@ $urlClean = substr($url, $lengthStrFolder); //limpa a parte padrão da página c
 
 $route = explode ("/" , $urlClean); //divide e url já limpa por barra 
 
-//Automatiza o carregamento dos models
-spl_autoload_register(function($class_name){
-    require 'models/' . $class_name . '.php' ;
-});
-
+//carrega autoloaders
+require('helpers/autoloaders.php');
 
 if($route[0] == 'user'){
     require('controllers/UserController.php'); //chama o arquico UserController caso a primeira url digitada seja user
 }elseif($route[0] == 'produto'){
     require('controllers/ProdutoController.php');//chama o arquico ProdutoController caso a primeira url digitada seja produto
 }else{
-    echo "404 - Página não encontrada.";
+    $result['message'] = "404 - Rota da API não encontrada";
+    $response = new Output();
+    $response->out($result, 404);
 }
-
-
-
-
 ?>

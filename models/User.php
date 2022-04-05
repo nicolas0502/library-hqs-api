@@ -32,7 +32,7 @@ class User{
             $result['user']['email'] = $this->email;
             $result['user']['pass'] = $this->pass;
             $response= new Output();
-            $response->out($result, 200);  
+            $response->out($result);  
 
         }catch(PDOException $e) {
             $result['message'] = "Error Create: " . $e->getMessage();
@@ -51,7 +51,7 @@ class User{
             $result['message'] = "O Usuário foi Deletado Com Sucesso ";
             $result['user']['id'] = $this->id;
             $response= new Output();
-            $response->out($result, 200);
+            $response->out($result);
 
         }catch(PDOException $e) {
             $result['message'] = "Error Delete: " . $e->getMessage();
@@ -76,7 +76,7 @@ class User{
             $result['user']['email'] = $this->email;
             $result['user']['pass'] = $this->pass;
             $response= new Output();
-            $response->out($result, 200); 
+            $response->out($result); 
 
         }catch(PDOException $e) {
             $result['message'] = "Error Update: " . $e->getMessage();

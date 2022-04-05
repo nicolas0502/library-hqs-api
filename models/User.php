@@ -25,8 +25,14 @@ class User{
             $stmt->bindParam(':email' , $this->email);
             $stmt->bindParam(':pass' , $this->pass);
             $stmt->execute();
-
-            echo "Cadastrado com sucesso!";
+            $id = $db->conn->lastInsertId();
+            $result['message'] = "O Usuário foi Cadastrado Com Sucesso ";
+            $result['user']['id'] = $id;
+            $result['user']['name'] = $this->name;
+            $result['user']['email'] = $this->email;
+            $result['user']['pass'] = $this->pass;
+            $response= new Output();
+            $response->out($result, 200);  
 
         }catch(PDOException $e) {
             $result['message'] = "Error Create: " . $e->getMessage();
@@ -42,7 +48,10 @@ class User{
             $stmt->bindParam(':id' , $this->id);
             $stmt->execute();
 
-            echo "Deletado com sucesso!";
+            $result['message'] = "O Usuário foi Deletado Com Sucesso ";
+            $result['user']['id'] = $this->id;
+            $response= new Output();
+            $response->out($result, 200);
 
         }catch(PDOException $e) {
             $result['message'] = "Error Delete: " . $e->getMessage();
@@ -61,7 +70,13 @@ class User{
             $stmt->bindParam(':pass' , $this->pass);
             $stmt->execute();
 
-            echo "Update feito com sucesso!";
+            $result['message'] = "Update de Usuário feito Com Sucesso ";
+            $result['user']['id'] = $this->id;
+            $result['user']['name'] = $this->name;
+            $result['user']['email'] = $this->email;
+            $result['user']['pass'] = $this->pass;
+            $response= new Output();
+            $response->out($result, 200); 
 
         }catch(PDOException $e) {
             $result['message'] = "Error Update: " . $e->getMessage();

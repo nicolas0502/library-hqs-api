@@ -13,12 +13,10 @@ if(isset($route[1]) && $route[1] != ''){
     }else{
         $result['message'] = "404 - Rota da API não encontrada";
         $response = new Output();
-        $response->out($result, 404);
     }
 
 }else{
     $result['message'] = "404 - Rota da API não encontrada";
     $response = new Output();
-    $response->out($result, 404);
 }
 ?>

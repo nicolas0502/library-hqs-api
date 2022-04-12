@@ -1,43 +1,64 @@
 <?php
 
-if(isset($route[1]) && $route[1] != ''){
+class UserController{
 
-    if($route[1] == 'create'){
+    function create(){
+        //Entradas
         $name= $_POST['name'];
         $email= $_POST['email'];
         $pass= $_POST['pass'];
         
-        $user = new User(null,$name,$email,$pass);       //adiciona em uma variavel os dados para cadastro
-        $user->create();                                // chama a function create para criar o usuario
-    }elseif($route[1] == 'delete'){
+        //Processamento ou Persistencia
+        $user = new User(null,$name,$email,$pass);       
+        $id = $user->create();   
+
+        //Saída
+        $result['message'] = "O Usuário foi Cadastrado Com Sucesso ";
+        $result['user']['id'] = $id;
+        $result['user']['name'] = $name;
+        $result['user']['email'] = $email;
+        $result['user']['pass'] = $pass;
+        $response= new Output();
+        $response->out($result);
+    }
+
+    function delete(){
         $id = $_POST['id'];
-        $user = new User($id, null, null, null);         //adiciona em uma variavel os dados para delete
-        $user->delete();                                //chama a function create para criar o usuario
-    }elseif($route[1] == 'update'){
+
+        $user = new User($id, null, null, null);         
+        $user->delete();
+
+        $result['message'] = "O Usuário foi Deletado Com Sucesso ";
+        $result['user']['id'] = $id;
+        $response= new Output();
+        $response->out($result);
+    }
+
+    function update(){
         $id = $_POST['id'];
         $name = $_POST['name'];
         $email = $_POST['email'];
         $pass = $_POST['pass'];
+        
         $user = new User($id, $name, $email, $pass);   
         $user->update();
-    }elseif($route[1] == 'select-all'){
-        $user = new User(null, null, null, null);       
-        $user->selectAll();
-    }elseif($route[1] == 'select'){
-        $id = $_POST['id'];
-        $user = new User($id, null, null, null);         
-        $user->selectById();
-    }else{
-        $result['message'] = "404 - Rota da API não encontrada";
-        $response->out($result, 404);;
+
+        $result['message'] = "Update de Usuário feito Com Sucesso ";
+        $result['user']['id'] = $id;
+        $result['user']['name'] = $name;
+        $result['user']['email'] = $email;
+        $result['user']['pass'] = $pass;
+        $response= new Output();
+        $response->out($result); 
     }
 
-}else{
-    $result['message'] = "404 - Rota da API não encontrada";
-    $response->out($result, 404);
-}
+    function selectAll(){
+        $user = new User(null, null, null, null);       
+        $result= $user->selectAll();
 
-//require('models/User.php'); -> linka o arquivo no models User
-//require('models/User.php'); -> linka o arquivo no models User
+        $response = new Output();
+        $response->out($result);
+    }
+}
 ?>
 

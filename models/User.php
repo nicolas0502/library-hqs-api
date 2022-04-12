@@ -25,14 +25,10 @@ class User{
             $stmt->bindParam(':email' , $this->email);
             $stmt->bindParam(':pass' , $this->pass);
             $stmt->execute();
+
             $id = $db->conn->lastInsertId();
-            $result['message'] = "O Usuário foi Cadastrado Com Sucesso ";
-            $result['user']['id'] = $id;
-            $result['user']['name'] = $this->name;
-            $result['user']['email'] = $this->email;
-            $result['user']['pass'] = $this->pass;
-            $response= new Output();
-            $response->out($result);  
+            
+            return $id;  
 
         }catch(PDOException $e) {
             $result['message'] = "Error Create: " . $e->getMessage();
@@ -48,10 +44,7 @@ class User{
             $stmt->bindParam(':id' , $this->id);
             $stmt->execute();
 
-            $result['message'] = "O Usuário foi Deletado Com Sucesso ";
-            $result['user']['id'] = $this->id;
-            $response= new Output();
-            $response->out($result);
+            return true;
 
         }catch(PDOException $e) {
             $result['message'] = "Error Delete: " . $e->getMessage();
@@ -70,13 +63,7 @@ class User{
             $stmt->bindParam(':pass' , $this->pass);
             $stmt->execute();
 
-            $result['message'] = "Update de Usuário feito Com Sucesso ";
-            $result['user']['id'] = $this->id;
-            $result['user']['name'] = $this->name;
-            $result['user']['email'] = $this->email;
-            $result['user']['pass'] = $this->pass;
-            $response= new Output();
-            $response->out($result); 
+            return true;
 
         }catch(PDOException $e) {
             $result['message'] = "Error Update: " . $e->getMessage();
@@ -92,8 +79,8 @@ class User{
             $stmt->execute();
             $result= $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            $response = new Output();
-            $response->out($result);
+            return $result;
+
         }catch(PDOException $e) {
             $result['message'] = "Error Select All User: " . $e->getMessage();
             $response= new Output();

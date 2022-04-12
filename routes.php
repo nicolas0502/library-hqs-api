@@ -14,13 +14,27 @@ require('helpers/autoloaders.php');
 //Cria objeto de resposta da api
 $response = new Output();
 
-//Checa se o controller existe
-$file_path = 'controllers/' .$route[0].'Controller.php';
-
-if(file_exists($file_path)){
-    require($file_path);
-}else{
+//Checa se o controller e a action existe na rota
+if(!isset($route[0]) || !isset($route[1])) {
     $result['message'] = "404 - Rota da API não encontrada";
     $response->out($result, 404);
 }
+
+$controller_name = $route[0];
+$action = str_replace('-', '', $route[1]);
+
+$controller_path = 'controllers/'. $controller_name .'Controller.php';
+
+//Checa se o arquivo do controller existe
+if(file_exists($controller_path)) {
+    $controller_class_name = $controller_name. 'Controller';
+    $controller = new $controller_class_name();
+    //Checa se o action do controller existe
+    if(method_exists($controller, $action)) {
+        $controller->$action();
+    }
+}   
+
+$result['message'] = "404 - Rota da API não encontrada";
+$response->out($result, 404);
 ?>

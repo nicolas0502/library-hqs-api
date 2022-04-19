@@ -1,15 +1,16 @@
 <?php 
 
-define('FOLDER', "/LP2/api/");                   //Cria uma constante de /LP2/api/ com FOLDER
+require('config.php');                      
 
-$url= $_SERVER['REQUEST_URI'];                   //Armazena na variavel "url" qual é a url buscada pelo cliente
-$lengthStrFolder = strlen(FOLDER);               //Mostra o valor da parte padrão da url EX: /LP2/
-$urlClean = substr($url, $lengthStrFolder);      //Limpa a parte padrão da página conforme o seu tamanho armazenado em lengthStrFolder
+$url= $_SERVER['REQUEST_URI'];                           //Armazena na variavel "url" qual é a url buscada pelo cliente
+$lengthStrFolder = strlen(BASE_URL_API);                //Mostra o valor da parte padrão da url EX: /LP2/
+$urlClean = substr($url, $lengthStrFolder);             //Limpa a parte padrão da página conforme o seu tamanho armazenado em lengthStrFolder
 
-$route = explode ("/" , $urlClean);              //Divide e url já limpa por barra 
+$routeWithoutParameters = explode ("?" , $urlClean);               //Elimina parametros
+$route = explode ("/" , $routeWithoutParameters[0]);              //Divide e url já limpa por barra 
 
 //Carrega autoloaders
-require('helpers/autoloaders.php');
+require(HELPERS_FOLDER.'autoloaders.php');
 
 //Cria objeto de resposta da api
 $response = new Output();
@@ -23,7 +24,7 @@ if(!isset($route[0]) || !isset($route[1])) {
 $controller_name = $route[0];
 $action = str_replace('-', '', $route[1]);
 
-$controller_path = 'controllers/'. $controller_name .'Controller.php';
+$controller_path = CONTROLLERS_FOLDER. $controller_name .'Controller.php';
 
 //Checa se o arquivo do controller existe
 if(file_exists($controller_path)) {

@@ -20,7 +20,7 @@ class User{
     function create(){
         $db = new Database();
         try{
-            $stmt = $db->conn->prepare("INSERT INTO users (name, email, pass) VALUES (:name, :email, :pass)");
+            $stmt = $db->conn->prepare("INSERT INTO users (name, email, pass) VALUES (:name, :email, :pass);");
             $stmt->bindParam(':name' , $this->name);
             $stmt->bindParam(':email' , $this->email);
             $stmt->bindParam(':pass' , $this->pass);
@@ -40,7 +40,7 @@ class User{
     function delete(){
         $db = new DataBase();
         try{
-            $stmt = $db->conn->prepare("DELETE FROM users WHERE id= :id");
+            $stmt = $db->conn->prepare("DELETE FROM users WHERE id= :id;");
             $stmt->bindParam(':id' , $this->id);
             $stmt->execute();
 
@@ -56,7 +56,7 @@ class User{
     function update(){
         $db = new DataBase();
         try{
-            $stmt = $db->conn->prepare("UPDATE users SET name=:name,email=:email, pass=:pass WHERE id= :id");
+            $stmt = $db->conn->prepare("UPDATE users SET name=:name,email=:email, pass=:pass WHERE id= :id;");
             $stmt->bindParam(':id' , $this->id);
             $stmt->bindParam(':name' , $this->name);
             $stmt->bindParam(':email' , $this->email);
@@ -91,12 +91,11 @@ class User{
     function selectById(){
         $db = new DataBase();
         try{
-            $stmt = $db->conn->prepare("SELECT name, email, pass FROM users WHERE id=:id");
+            $stmt = $db->conn->prepare("SELECT * FROM users WHERE id=:id;");
             $stmt->bindParam(':id' , $this->id);
             $stmt->execute();
             $result= $stmt->fetch(PDO::FETCH_ASSOC);
-            $response = new Output();
-            $response->out($result);
+            return $result;
         }catch(PDOException $e) {
             $result['message'] = "Error Select By ID: " . $e->getMessage();
             $response= new Output();

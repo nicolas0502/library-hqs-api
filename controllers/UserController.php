@@ -66,6 +66,17 @@ class UserController{
 
         $response->out($result);
     }
+
+    function selectById(){
+        $response= new Output();
+        $response->allowedMethod('GET');
+        $id = $_GET['id'];
+        $user = new User($id, null, null, null);       
+        $result= $user->selectById();
+
+        $response->out($result);
+    }
 }
+
 ?>
 

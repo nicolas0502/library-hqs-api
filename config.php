@@ -4,7 +4,7 @@ define('BASE_URL_API', "/LP2/api/");
 
 //Config DataBase
 define('DB_HOST', "localhost"); 
-define('DB_NAME', "estudo_api"); 
+define('DB_NAME', "library_hqs"); 
 define('DB_USER_NAME', "root"); 
 define('DB_PASSWORD', ""); 
 

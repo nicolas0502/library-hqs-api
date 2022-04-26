@@ -38,7 +38,7 @@ class HqController{
         $hq->delete();
 
         $result['message'] = "O HQ foi Deletado Com Sucesso ";
-        $result['user']['id'] = $id;
+        $result['hq']['id'] = $id;
         $response->out($result);
     }
 

@@ -79,7 +79,7 @@ class HqController{
         $response= new Output();
         $response->allowedMethod('GET');
         $id = $_GET['id'];
-        $hq = new Hq($id, null, null, null,null, null);       
+        $hq = new Hq($id, null, null, null, null, null);       
         $result= $hq->selectById();
 
         $response->out($result);

@@ -15,7 +15,7 @@ class ClienteController{
         $senha= $_POST['senha'];
         
         //Processamento ou Persistencia
-        $cliente = new Cliente(null,$nome, $sobrenome, $email, $telefone, $cpf, $nascimento, $senha);       
+        $cliente = new Cliente(null,$nome, $sobrenome, $email, $telefone, $cpf, $nascimento, sha1($senha));       
         $id = $cliente->create();   
 
         //Saída
@@ -27,7 +27,6 @@ class ClienteController{
         $result['cliente']['telefone'] = $telefone;
         $result['cliente']['cpf'] = $cpf;
         $result['cliente']['nascimento'] = $nascimento;
-        $result['cliente']['senha'] = $senha;
         
         $response->out($result);
     }
@@ -38,7 +37,7 @@ class ClienteController{
 
         $id = $_POST['id'];
 
-        $cliente = new Cliente($id, null, null, null, null, null, null, null);         
+        $cliente = new Cliente($id, null, null, null, null, null, null, null, null);         
         $cliente->delete();
 
         $result['message'] = "O Clinete foi Deletado Com Sucesso ";
@@ -59,7 +58,7 @@ class ClienteController{
         $nascimento= $_POST['nascimento'];
         $senha= $_POST['senha'];
         
-        $cliente = new Cliente($id, $nome, $sobrenome, $email, $telefone, $cpf, $nascimento, $senha);   
+        $cliente = new Cliente($id, $nome, $sobrenome, $email, $telefone, $cpf, $nascimento, sha1($senha));   
         $cliente->update();
 
         $result['message'] = "Update do Cliente foi feito Com Sucesso ";
@@ -77,7 +76,7 @@ class ClienteController{
     function selectAll(){
         $response= new Output();
         $response->allowedMethod('GET');
-        $cliente = new Cliente(null, null, null, null, null, null, null, null);       
+        $cliente = new Cliente(null, null, null, null, null, null, null, null, null);       
         $result= $cliente->selectAll();
 
         $response->out($result);
@@ -87,7 +86,7 @@ class ClienteController{
         $response= new Output();
         $response->allowedMethod('GET');
         $id = $_GET['id'];
-        $cliente = new Cliente($id, null, null, null,null, null, null, null);       
+        $cliente = new Cliente($id, null, null, null,null, null, null, null,null);       
         $result= $cliente->selectById();
 
         $response->out($result);

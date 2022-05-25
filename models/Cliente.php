@@ -23,7 +23,7 @@ class Cliente{
     function create(){
         $db = new Database();
         try{
-            $stmt = $db->conn->prepare("INSERT INTO cliente (nome, sobrenome, email, telefone, cpf, nascimento, senha) VALUES (:nome, :sobrenome, :email, :telefone, :cpf, :nascimento, :senha);");
+            $stmt = $db->conn->prepare("INSERT INTO cliente (nome, sobrenome, email, telefone, cpf, nascimento, senha, regras) VALUES (:nome, :sobrenome, :email, :telefone, :cpf, :nascimento, :senha), 'cliente';");
             $stmt->bindParam(':nome' , $this->nome);
             $stmt->bindParam(':sobrenome' , $this->sobrenome);
             $stmt->bindParam(':email' , $this->email);

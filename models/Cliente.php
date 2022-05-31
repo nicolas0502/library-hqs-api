@@ -113,6 +113,22 @@ class Cliente{
         }
     }
 
+    function login(){
+        $db = new Database();
+        try {
+            $stmt = $db->conn->prepare("SELECT id, name, email, roles FROM users WHERE email = :email AND pass = :pass; ");
+            $stmt->bindParam(':email', $this->email);
+            $stmt->bindParam(':pass', $this->pass);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }catch(PDOException $e) {
+            $result['message'] = "Error User Login:" . $e->getMessage();
+            $response = new Output();
+            $response->out($result, 500);
+        }
+    }
+
 
 }
 ?>

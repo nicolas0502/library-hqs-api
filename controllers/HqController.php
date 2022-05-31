@@ -84,6 +84,16 @@ class HqController{
 
         $response->out($result);
     }
+
+    function selectByIds(){
+        $response= new Output();
+        $response->allowedMethod('GET');
+        $id = $_GET['id'];
+        $hq = new Hq(null, null, null, null, null, null);       
+        $result= $hq->selectByIds($id);
+
+        $response->out($result);
+    }
 }
 
 ?>

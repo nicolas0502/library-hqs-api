@@ -1,0 +1,22 @@
+[
+  {
+    "_id": "4f318383-ece0-4157-90e7-e8a58cc1fc5d",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost/LP2/api/hq/select-by-ids/?id=1,19,4",
+    "url": "http://localhost/LP2/api/hq/select-by-ids/?id=1,19,4",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-05-31T18:27:03.368Z",
+    "modified": "2022-05-31T18:59:40.200Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "id",
+        "value": "1,19,4",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  }
+]

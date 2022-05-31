@@ -94,9 +94,25 @@ class Hq{
         $db = new DataBase();
         try{
             $stmt = $db->conn->prepare("SELECT * FROM hqs WHERE id=:id;");
-            $stmt->bindParam(':id' , $this->id);
+            $stmt->bindParam(':id', $this->id);
             $stmt->execute();
             $result= $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }catch(PDOException $e) {
+            $result['message'] = "Error Select By ID: " . $e->getMessage();
+            $response= new Output();
+            $response->out($result, 500); 
+        }
+    }
+
+    function selectByIds($id){
+        $arrayIds = array_map('intval', explode(',', $id));
+        $arrayIds = implode(',', $arrayIds);
+        $db = new DataBase();
+        try{
+            $stmt = $db->conn->prepare("SELECT * FROM hqs WHERE id IN($arrayIds);");
+            $stmt->execute();
+            $result= $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $result;
         }catch(PDOException $e) {
             $result['message'] = "Error Select By ID: " . $e->getMessage();

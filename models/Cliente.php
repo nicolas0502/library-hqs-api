@@ -23,7 +23,7 @@ class Cliente{
     function create(){
         $db = new Database();
         try{
-            $stmt = $db->conn->prepare("INSERT INTO cliente (nome, sobrenome, email, telefone, cpf, nascimento, senha, regras) VALUES (:nome, :sobrenome, :email, :telefone, :cpf, :nascimento, :senha), 'cliente';");
+            $stmt = $db->conn->prepare("INSERT INTO cliente (nome, sobrenome, email, telefone, cpf, nascimento, senha) VALUES (:nome, :sobrenome, :email, :telefone, :cpf, :nascimento, :senha);");
             $stmt->bindParam(':nome' , $this->nome);
             $stmt->bindParam(':sobrenome' , $this->sobrenome);
             $stmt->bindParam(':email' , $this->email);
@@ -116,14 +116,14 @@ class Cliente{
     function login(){
         $db = new Database();
         try {
-            $stmt = $db->conn->prepare("SELECT id, name, email, roles FROM users WHERE email = :email AND pass = :pass; ");
+            $stmt = $db->conn->prepare("SELECT *  FROM cliente WHERE email = :email AND senha = :senha; ");
             $stmt->bindParam(':email', $this->email);
-            $stmt->bindParam(':pass', $this->pass);
+            $stmt->bindParam(':senha', $this->senha);
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
             return $result;
         }catch(PDOException $e) {
-            $result['message'] = "Error User Login:" . $e->getMessage();
+            $result['message'] = "Error cliente Login:" . $e->getMessage();
             $response = new Output();
             $response->out($result, 500);
         }

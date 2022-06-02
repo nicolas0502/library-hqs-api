@@ -17,7 +17,7 @@ class VendedorController{
         $cep= $_POST['cep'];
         
         //Processamento ou Persistencia
-        $vendedor = new Vendedor(null,$nome, $sobrenome, $email, $telefone, $cpf, $rg, $nascimento, $senha, $cep);       
+        $vendedor = new Vendedor(null,$nome, $sobrenome, $email, $telefone, $cpf, $rg, $nascimento, sha1($senha), $cep);       
         $id = $vendedor->create();   
 
         //Saída
@@ -65,7 +65,7 @@ class VendedorController{
         $senha= $_POST['senha'];
         $cep= $_POST['cep'];
         
-        $vendedor = new Vendedor($id, $nome, $sobrenome, $email, $telefone, $cpf, $rg, $nascimento, $senha, $cep);   
+        $vendedor = new Vendedor($id, $nome, $sobrenome, $email, $telefone, $cpf, $rg, $nascimento, sha1($senha), $cep);   
         $vendedor->update();
 
         $result['message'] = "Update do Vendedor foi feito Com Sucesso ";

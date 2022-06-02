@@ -10,16 +10,16 @@ class AuthController{
 
         $description = $_SERVER['HTTP_USER_AGENT'];
 
-        $user = new User(null, null, $email, sha1($pass));
-        $userLogged = $user->login();
+        $cliente = new Cliente(null, null, null, $email, null, null, null, sha1($pass));
+        $clienteLogged = $cliente->login();
         
-        if($userLogged){
-            $token = md5(uniqid($userLogged['id'], true));
-            $session = new SessionUser($userLogged['id'], $token, $description);
+        if($clienteLogged){
+            $token = md5(uniqid($clienteLogged['id'], true));
+            $session = new SessionUser($clienteLogged['id'], $token, $description);
             if($session->create()){
                 $result['session']['token'] = $token;
-                $result['session']['email'] = $userLogged['email'];
-                $result['session']['roles'] = $userLogged['roles'];
+                $result['session']['email'] = $clienteLogged['email'];
+                $result['session']['roles'] = $clienteLogged['roles'];
                 $response->out($result);
             }
         }else{
@@ -34,7 +34,7 @@ class AuthController{
 
         $token = $_POST['token'];
 
-        $session = new Session(null, $token, null);
+        $session = new SessionUser(null, $token, null);
         
         if($session->delete()){
             $result['message'] = "Sessão encerrada! Volte sempre!";

@@ -13,10 +13,14 @@ class ClienteController{
         $cpf= $_POST['cpf'];
         $nascimento= $_POST['nascimento'];
         $senha= $_POST['senha'];
+        $tipo= "cliente";
+
+        $login = new Login(null, $email, sha1($senha), $tipo);
+        $id = $login->create();
         
         //Processamento ou Persistencia
-        $cliente = new Cliente(null,$nome, $sobrenome, $email, $telefone, $cpf, $nascimento, sha1($senha));       
-        $id = $cliente->create();   
+        $cliente = new Cliente($id, $nome, $sobrenome, $telefone, $cpf, $nascimento);       
+        $cliente->create();   
 
         //Saída
         $result['message'] = "O Cliente foi Cadastrado Com Sucesso ";
@@ -27,6 +31,7 @@ class ClienteController{
         $result['cliente']['telefone'] = $telefone;
         $result['cliente']['cpf'] = $cpf;
         $result['cliente']['nascimento'] = $nascimento;
+        $result['cliente']['tipo'] = $tipo;
         
         $response->out($result);
     }
@@ -58,18 +63,16 @@ class ClienteController{
         $nascimento= $_POST['nascimento'];
         $senha= $_POST['senha'];
         
-        $cliente = new Cliente($id, $nome, $sobrenome, $email, $telefone, $cpf, $nascimento, sha1($senha));   
+        $cliente = new Cliente($id, $nome, $sobrenome, $telefone, $cpf, $nascimento);   
         $cliente->update();
 
         $result['message'] = "Update do Cliente foi feito Com Sucesso ";
         $result['cliente']['id'] = $id;
         $result['cliente']['nome'] = $nome;
         $result['cliente']['sobrenome'] = $sobrenome;
-        $result['cliente']['email'] = $email;
         $result['cliente']['telefone'] = $telefone;
         $result['cliente']['cpf'] = $cpf;
         $result['cliente']['nascimento'] = $nascimento;
-        $result['cliente']['senha'] = $senha;
         $response->out($result); 
     }
 

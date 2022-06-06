@@ -1,11 +1,11 @@
 <?php 
-class SessionVend{
-    public $idVend;
+class Session{
+    public $idUser;
     public $token;
     public $description;
     
-    function __construct($idVend, $token, $description) {
-        $this->idVend = $idVend;
+    function __construct($idUser, $token, $description) {
+        $this->idUser = $idUser;
         $this->token = $token;
         $this->description = $description;
     }
@@ -13,9 +13,9 @@ class SessionVend{
     function create(){
         $db = new Database();
         try {
-            $stmt = $db->conn->prepare("INSERT INTO sessions (id_vend, token, description, create_at)
-            VALUES (:id_vend, :token, :description, NOW());");
-            $stmt->bindParam(':id_vend', $this->idVend);
+            $stmt = $db->conn->prepare("INSERT INTO sessions (id_user, token, description, create_at)
+            VALUES (:id_user, :token, :description, NOW());");
+            $stmt->bindParam(':id_user', $this->idUser);
             $stmt->bindParam(':token', $this->token);
             $stmt->bindParam(':description', $this->description);
             $stmt->execute();
@@ -44,9 +44,9 @@ class SessionVend{
     function checkSessionRoles(){
         $db = new Database();
         try {
-            $stmt = $db->conn->prepare("SELECT s.id_vend, v.regras FROM
-            sessions_vend as s
-            JOIN vendedores as v ON s.id_vend = v.id
+            $stmt = $db->conn->prepare("SELECT s.id_user, c.regras FROM
+            sessions as s
+            JOIN cliente as c ON s.id_user = c.id
             WHERE s.token = :token;");
             $stmt->bindParam(':token', $this->token);
             $stmt->execute();

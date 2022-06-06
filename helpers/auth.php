@@ -1,5 +1,5 @@
 <?php
-class AuthVend{
+class AuthUser{
     function allowedRole($regra){
         $response = new Output();
         //Verifia se possui ACCESS_TOKEN
@@ -9,7 +9,7 @@ class AuthVend{
         }
         $token = $_SERVER['HTTP_ACCESS_TOKEN'];
 
-        $session = new SessionVend(null, $token, null);
+        $session = new Session(null, $token, null);
         $user_session = $session->checkSessionRoles();
         
         //Verifica se possui sessão 

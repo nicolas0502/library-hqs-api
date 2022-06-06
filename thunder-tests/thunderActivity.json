@@ -216,68 +216,59 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost/LP2/api/vendedor/create",
-    "url": "http://localhost/LP2/api/vendedor/create",
+    "url": "http://localhost/LP2/api/cliente/update",
     "method": "POST",
     "sortNum": 0,
     "created": "2022-06-02T20:32:45.094Z",
-    "modified": "2022-06-02T20:32:45.527Z",
+    "modified": "2022-06-06T20:56:00.506Z",
     "headers": [],
-    "params": [
-      {
-        "name": "nome",
-        "value": "joao",
-        "isDisabled": true,
-        "isPath": false
-      },
-      {
-        "name": "sobrenome",
-        "value": "joao",
-        "isDisabled": true,
-        "isPath": false
-      },
-      {
-        "name": "email",
-        "value": "joao@gmail.com",
-        "isDisabled": true,
-        "isPath": false
-      },
-      {
-        "name": "telefone",
-        "value": "123333333",
-        "isDisabled": true,
-        "isPath": false
-      },
-      {
-        "name": "cpf",
-        "value": "12312312212",
-        "isDisabled": true,
-        "isPath": false
-      },
-      {
-        "name": "rg",
-        "value": "123123123",
-        "isDisabled": true,
-        "isPath": false
-      },
-      {
-        "name": "nascimento",
-        "value": "20050205",
-        "isDisabled": true,
-        "isPath": false
-      },
-      {
-        "name": "senha ",
-        "value": "123123",
-        "isDisabled": true,
-        "isPath": false
-      },
-      {
-        "name": "cep",
-        "value": "123123",
-        "isDisabled": true,
-        "isPath": false
-      }
-    ],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "nome",
+          "value": "nicolassss"
+        },
+        {
+          "name": "sobrenome",
+          "value": "sousasss"
+        },
+        {
+          "name": "email",
+          "value": "niconicssso@gmail.com"
+        },
+        {
+          "name": "telefone",
+          "value": "12121212213121212312"
+        },
+        {
+          "name": "cpf",
+          "value": "1231231123123123"
+        },
+        {
+          "name": "rg",
+          "value": "1231231212312312312"
+        },
+        {
+          "name": "nascimento",
+          "value": "12312323123"
+        },
+        {
+          "name": "senha",
+          "value": "321321123123"
+        },
+        {
+          "name": "cep",
+          "value": "123123123123"
+        },
+        {
+          "name": "id",
+          "value": "7"
+        }
+      ]
+    },
     "tests": []
   }
 ]

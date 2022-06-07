@@ -47,7 +47,7 @@ class VendedorController{
 
         $id = $_POST['id'];
 
-        $vendedor = new Vendedor($id, null, null, null, null, null, null, null, null, null);         
+        $vendedor = new Vendedor($id, null, null, null, null, null, null, null);         
         $vendedor->delete();
 
         $result['message'] = "O Vendedor foi Deletado Com Sucesso ";
@@ -86,7 +86,7 @@ class VendedorController{
     function selectAll(){
         $response= new Output();
         $response->allowedMethod('GET');
-        $vendedor = new Vendedor(null, null, null, null, null, null, null, null, null, null);       
+        $vendedor = new Vendedor(null, null, null, null, null, null, null, null);       
         $result= $vendedor->selectAll();
 
         $response->out($result);
@@ -96,7 +96,7 @@ class VendedorController{
         $response= new Output();
         $response->allowedMethod('GET');
         $id = $_GET['id'];
-        $vendedor = new Vendedor($id, null, null, null,null, null, null, null, null, null);       
+        $vendedor = new Vendedor($id, null, null, null,null, null, null, null);       
         $result= $vendedor->selectById();
 
         $response->out($result);

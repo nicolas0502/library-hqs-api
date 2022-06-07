@@ -42,7 +42,7 @@ class ClienteController{
 
         $id = $_POST['id'];
 
-        $cliente = new Cliente($id, null, null, null, null, null, null, null, null);         
+        $cliente = new Cliente($id, null, null, null, null, null);         
         $cliente->delete();
 
         $result['message'] = "O Clinete foi Deletado Com Sucesso ";
@@ -79,7 +79,7 @@ class ClienteController{
     function selectAll(){
         $response= new Output();
         $response->allowedMethod('GET');
-        $cliente = new Cliente(null, null, null, null, null, null, null, null, null);       
+        $cliente = new Cliente(null, null, null, null, null, null);       
         $result= $cliente->selectAll();
 
         $response->out($result);
@@ -89,7 +89,7 @@ class ClienteController{
         $response= new Output();
         $response->allowedMethod('GET');
         $id = $_GET['id'];
-        $cliente = new Cliente($id, null, null, null,null, null, null, null,null);       
+        $cliente = new Cliente($id, null, null, null,null, null);       
         $result= $cliente->selectById();
 
         $response->out($result);

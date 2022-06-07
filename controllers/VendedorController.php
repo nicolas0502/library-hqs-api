@@ -21,7 +21,7 @@ class VendedorController{
         $id = $login->create();
 
         //Processamento ou Persistencia
-        $vendedor = new Vendedor($id, $nome, $sobrenome, $email, $telefone, $cpf, $rg, $nascimento, sha1($senha), $cep);       
+        $vendedor = new Vendedor($id, $nome, $sobrenome, $telefone, $cpf, $rg, $nascimento, $cep);       
         $vendedor->create();   
 
         //Saída

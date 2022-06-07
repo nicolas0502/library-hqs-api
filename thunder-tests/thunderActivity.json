@@ -235,5 +235,101 @@
       }
     ],
     "tests": []
+  },
+  {
+    "_id": "1216b9f5-82c0-46bf-804f-f5d599dd1e24",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost/LP2/api/cliente/create",
+    "url": "http://localhost/LP2/api/cliente/create",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-06-07T20:20:58.727Z",
+    "modified": "2022-06-07T20:20:59.132Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "nome ",
+          "value": "nico"
+        },
+        {
+          "name": "sobrenome",
+          "value": "sousa"
+        },
+        {
+          "name": "email",
+          "value": "nicosousa@gmail.com"
+        },
+        {
+          "name": "cpf",
+          "value": "123123"
+        },
+        {
+          "name": "telefone",
+          "value": "123123"
+        },
+        {
+          "name": "nascimento",
+          "value": "20000502"
+        },
+        {
+          "name": "senha",
+          "value": "123123"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "a699f46f-8d5c-41fb-8429-f4d0e72eeabb",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost/LP2/api/cliente/create",
+    "url": "http://localhost/LP2/api/cliente/create",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-06-07T20:21:03.892Z",
+    "modified": "2022-06-07T20:21:28.566Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "nome",
+          "value": "nico"
+        },
+        {
+          "name": "sobrenome",
+          "value": "sousa"
+        },
+        {
+          "name": "email",
+          "value": "nicosousa123@gmail.com"
+        },
+        {
+          "name": "cpf",
+          "value": "123123"
+        },
+        {
+          "name": "telefone",
+          "value": "123123"
+        },
+        {
+          "name": "nascimento",
+          "value": "20000502"
+        },
+        {
+          "name": "senha",
+          "value": "123123"
+        }
+      ]
+    },
+    "tests": []
   }
 ]

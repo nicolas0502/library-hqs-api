@@ -1,226 +1,14 @@
 [
   {
-    "_id": "4f318383-ece0-4157-90e7-e8a58cc1fc5d",
-    "colId": "history",
-    "containerId": "",
-    "name": "http://localhost/LP2/api/hq/select-by-ids/?id=1,19,4",
-    "url": "http://localhost/LP2/api/hq/select-by-ids/?id=1,19,4",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2022-05-31T18:27:03.368Z",
-    "modified": "2022-05-31T18:59:40.200Z",
-    "headers": [],
-    "params": [
-      {
-        "name": "id",
-        "value": "1,19,4",
-        "isPath": false
-      }
-    ],
-    "tests": []
-  },
-  {
-    "_id": "d219f3b2-976b-437c-9720-0c2c675c2e66",
-    "colId": "history",
-    "containerId": "",
-    "name": "http://localhost/LP2/api/cliente/create?nome=joao&sobrenome=joao&email=joao@gmail.com&telefone=123312312&cpf=123123123&nascimento=05022005&senha=123123",
-    "url": "http://localhost/LP2/api/cliente/create?nome=joao&sobrenome=joao&email=joao@gmail.com&telefone=123312312&cpf=123123123&nascimento=05022005&senha=123123",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2022-06-02T19:01:43.121Z",
-    "modified": "2022-06-02T19:01:44.313Z",
-    "headers": [],
-    "params": [
-      {
-        "name": "nome",
-        "value": "joao",
-        "isPath": false
-      },
-      {
-        "name": "sobrenome",
-        "value": "joao",
-        "isPath": false
-      },
-      {
-        "name": "email",
-        "value": "joao@gmail.com",
-        "isPath": false
-      },
-      {
-        "name": "telefone",
-        "value": "123312312",
-        "isPath": false
-      },
-      {
-        "name": "cpf",
-        "value": "123123123",
-        "isPath": false
-      },
-      {
-        "name": "nascimento",
-        "value": "05022005",
-        "isPath": false
-      },
-      {
-        "name": "senha",
-        "value": "123123",
-        "isPath": false
-      }
-    ],
-    "tests": []
-  },
-  {
-    "_id": "ef004074-41d8-40ca-9755-7ba243186735",
-    "colId": "history",
-    "containerId": "",
-    "name": "http://localhost/LP2/api/cliente/create",
-    "url": "http://localhost/LP2/api/cliente/create",
-    "method": "POST",
-    "sortNum": 0,
-    "created": "2022-06-02T19:02:05.212Z",
-    "modified": "2022-06-02T19:26:59.101Z",
-    "headers": [],
-    "params": [
-      {
-        "name": "nome",
-        "value": "joao",
-        "isDisabled": true,
-        "isPath": false
-      },
-      {
-        "name": "sobrenome",
-        "value": "joao",
-        "isDisabled": true,
-        "isPath": false
-      },
-      {
-        "name": "email",
-        "value": "joao@gmail.com",
-        "isDisabled": true,
-        "isPath": false
-      },
-      {
-        "name": "telefone",
-        "value": "123312312",
-        "isDisabled": true,
-        "isPath": false
-      },
-      {
-        "name": "cpf",
-        "value": "123123123",
-        "isDisabled": true,
-        "isPath": false
-      },
-      {
-        "name": "nascimento",
-        "value": "05022005",
-        "isDisabled": true,
-        "isPath": false
-      },
-      {
-        "name": "senha",
-        "value": "123123",
-        "isDisabled": true,
-        "isPath": false
-      }
-    ],
-    "tests": []
-  },
-  {
-    "_id": "a8aafc1c-6939-4af8-b3fd-dba2be33273f",
-    "colId": "history",
-    "containerId": "",
-    "name": "http://localhost/LP2/api/cliente/select-all",
-    "url": "http://localhost/LP2/api/cliente/select-all",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2022-06-02T19:08:01.351Z",
-    "modified": "2022-06-02T19:08:01.536Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
-    "_id": "427d6c53-822d-474b-89c0-df018b678029",
-    "colId": "history",
-    "containerId": "",
-    "name": "http://localhost/LP2/api/cliente/delete",
-    "url": "http://localhost/LP2/api/cliente/delete",
-    "method": "POST",
-    "sortNum": 0,
-    "created": "2022-06-02T19:31:02.710Z",
-    "modified": "2022-06-02T19:31:02.759Z",
-    "headers": [],
-    "params": [
-      {
-        "name": "post",
-        "value": "3 ",
-        "isDisabled": true,
-        "isPath": false
-      }
-    ],
-    "tests": []
-  },
-  {
-    "_id": "384436ea-288a-4cdd-bef8-f60993c9157c",
-    "colId": "history",
-    "containerId": "",
-    "name": "http://localhost/LP2/api/cliente/create?nome=joao&sobrenome=joao&email=joao@gmail.com&telefone=123312312&cpf=123123123&nascimento=05022005&senha=123123",
-    "url": "http://localhost/LP2/api/cliente/create?nome=joao&sobrenome=joao&email=joao@gmail.com&telefone=123312312&cpf=123123123&nascimento=05022005&senha=123123",
-    "method": "POST",
-    "sortNum": 0,
-    "created": "2022-06-02T19:33:12.478Z",
-    "modified": "2022-06-02T19:33:12.500Z",
-    "headers": [],
-    "params": [
-      {
-        "name": "nome",
-        "value": "joao",
-        "isPath": false
-      },
-      {
-        "name": "sobrenome",
-        "value": "joao",
-        "isPath": false
-      },
-      {
-        "name": "email",
-        "value": "joao@gmail.com",
-        "isPath": false
-      },
-      {
-        "name": "telefone",
-        "value": "123312312",
-        "isPath": false
-      },
-      {
-        "name": "cpf",
-        "value": "123123123",
-        "isPath": false
-      },
-      {
-        "name": "nascimento",
-        "value": "05022005",
-        "isPath": false
-      },
-      {
-        "name": "senha",
-        "value": "123123",
-        "isPath": false
-      }
-    ],
-    "tests": []
-  },
-  {
     "_id": "a5ae8d56-c492-42cf-8d16-b96ccef7cd17",
     "colId": "history",
     "containerId": "",
     "name": "http://localhost/LP2/api/vendedor/create",
-    "url": "http://localhost/LP2/api/cliente/update",
+    "url": "http://localhost/LP2/api/vendedor/create",
     "method": "POST",
     "sortNum": 0,
     "created": "2022-06-02T20:32:45.094Z",
-    "modified": "2022-06-06T20:56:00.506Z",
+    "modified": "2022-06-07T18:14:44.960Z",
     "headers": [],
     "params": [],
     "body": {
@@ -237,38 +25,215 @@
         },
         {
           "name": "email",
-          "value": "niconicssso@gmail.com"
+          "value": "nicolas1234@gmail.com"
         },
         {
           "name": "telefone",
-          "value": "12121212213121212312"
+          "value": "444545454545"
         },
         {
           "name": "cpf",
-          "value": "1231231123123123"
-        },
-        {
-          "name": "rg",
-          "value": "1231231212312312312"
+          "value": "1231231123123123312312"
         },
         {
           "name": "nascimento",
-          "value": "12312323123"
+          "value": "1231232312312312"
         },
         {
           "name": "senha",
-          "value": "321321123123"
+          "value": "123213"
         },
         {
           "name": "cep",
           "value": "123123123123"
         },
         {
-          "name": "id",
-          "value": "7"
+          "name": "rg",
+          "value": "12312312312312"
         }
       ]
     },
+    "tests": []
+  },
+  {
+    "_id": "0d8de7c7-052e-46c3-8230-25a6b510a8e4",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost/LP2/api/auth/login",
+    "url": "http://localhost/LP2/api/auth/login",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-06-07T18:15:49.523Z",
+    "modified": "2022-06-07T18:18:15.323Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "email",
+          "value": "nicolas@gmail.com"
+        },
+        {
+          "name": "senha",
+          "value": "123123"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "36b77da2-60a5-4364-adf6-ff8c861fe8fd",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost/LP2/api/hq/create",
+    "url": "http://localhost/LP2/api/hq/create",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-06-07T18:38:38.356Z",
+    "modified": "2022-06-07T19:03:51.059Z",
+    "headers": [
+      {
+        "name": "access-token",
+        "value": "b65ac9937eb33e58b6f87d94bf22149c"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "nome",
+          "value": "homem aranha"
+        },
+        {
+          "name": "valor",
+          "value": "50"
+        },
+        {
+          "name": "quantidade",
+          "value": "20"
+        },
+        {
+          "name": "descricao",
+          "value": "qweqwe"
+        },
+        {
+          "name": "imagem",
+          "value": "aranha.jpg"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "a0ab0688-7076-4843-a990-81ab9f252325",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost/LP2/api/hq/update",
+    "url": "http://localhost/LP2/api/hq/update",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-06-07T18:43:35.636Z",
+    "modified": "2022-06-07T19:01:02.898Z",
+    "headers": [
+      {
+        "name": "access-token",
+        "value": "b65ac9937eb33e58b6f87d94bf22149c"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "id",
+          "value": "22"
+        },
+        {
+          "name": "nome",
+          "value": "homem de ferro2"
+        },
+        {
+          "name": "valor",
+          "value": "10"
+        },
+        {
+          "name": "quantidade",
+          "value": "11"
+        },
+        {
+          "name": "descricao",
+          "value": "asdasasdasdad"
+        },
+        {
+          "name": "imagem",
+          "value": "asdasdasdasdas"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "43fb27f9-5167-4866-8284-a4a99be50351",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost/LP2/api/hq/select-all",
+    "url": "http://localhost/LP2/api/hq/select-all",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-06-07T18:46:15.276Z",
+    "modified": "2022-06-07T18:59:04.255Z",
+    "headers": [
+      {
+        "name": "access-token",
+        "value": "b65ac9937eb33e58b6f87d94bf22149c"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "1362a8e1-d85b-4b27-a13a-d7f3944109ba",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost/LP2/api/hq/select-by-vendedor/?id=19",
+    "url": "http://localhost/LP2/api/hq/select-by-vendedor/?id=19",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-06-07T19:02:52.560Z",
+    "modified": "2022-06-07T19:02:52.575Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "id",
+        "value": "19",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "47590389-619b-42b5-a5f0-4f6ea546bfbe",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost/LP2/api/hq/select-hq-by-vendedor/?id=19",
+    "url": "http://localhost/LP2/api/hq/select-hq-by-vendedor/?id=19",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-06-07T19:03:25.579Z",
+    "modified": "2022-06-07T19:03:54.609Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "id",
+        "value": "19",
+        "isPath": false
+      }
+    ],
     "tests": []
   }
 ]

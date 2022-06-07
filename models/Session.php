@@ -44,9 +44,9 @@ class Session{
     function checkSessionRoles(){
         $db = new Database();
         try {
-            $stmt = $db->conn->prepare("SELECT s.id_user, c.regras FROM
+            $stmt = $db->conn->prepare("SELECT s.id_user, l.tipo FROM
             sessions as s
-            JOIN cliente as c ON s.id_user = c.id
+            JOIN login as l ON s.id_user = l.id
             WHERE s.token = :token;");
             $stmt->bindParam(':token', $this->token);
             $stmt->execute();

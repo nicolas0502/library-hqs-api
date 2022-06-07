@@ -46,8 +46,8 @@ class Vendedor{
     function delete(){
         $db = new DataBase();
         try{
-            $stmt = $db->conn->prepare("DELETE FROM vendedores WHERE id_login= :id_login;");
-            $stmt->bindParam(':id_login' , $this->id);
+            $stmt = $db->conn->prepare("DELETE FROM login WHERE id= :id;");
+            $stmt->bindParam(':id' , $this->id);
             $stmt->execute();
 
             return true;
@@ -101,7 +101,7 @@ class Vendedor{
         $db = new DataBase();
         try{
             $stmt = $db->conn->prepare("SELECT * FROM vendedores WHERE id_login=:id_login;");
-            $stmt->bindParam(':id' , $this->id);
+            $stmt->bindParam(':id_login' , $this->id);
             $stmt->execute();
             $result= $stmt->fetch(PDO::FETCH_ASSOC);
             return $result;
@@ -109,22 +109,6 @@ class Vendedor{
             $result['message'] = "Error Select By ID: " . $e->getMessage();
             $response= new Output();
             $response->out($result, 500); 
-        }
-    }
-
-    function login(){
-        $db = new Database();
-        try {
-            $stmt = $db->conn->prepare("SELECT *  FROM vendedores WHERE email = :email AND senha = :senha; ");
-            $stmt->bindParam(':email', $this->email);
-            $stmt->bindParam(':senha', $this->senha);
-            $stmt->execute();
-            $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $result;
-        }catch(PDOException $e) {
-            $result['message'] = "Error cliente Login:" . $e->getMessage();
-            $response = new Output();
-            $response->out($result, 500);
         }
     }
 }

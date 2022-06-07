@@ -89,7 +89,7 @@ class Login{
     function login(){
         $db = new Database();
         try {
-            $stmt = $db->conn->prepare("SELECT id, email, tipo FROM users WHERE email = :email AND senha = :senha; ");
+            $stmt = $db->conn->prepare("SELECT id, email, tipo FROM login WHERE email = :email AND senha = :senha; ");
             $stmt->bindParam(':email', $this->email);
             $stmt->bindParam(':senha', $this->senha);
             $stmt->execute();

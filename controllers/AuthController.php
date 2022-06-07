@@ -18,6 +18,7 @@ class AuthController{
             if($session->create()){
                 $result['session']['token'] = $token;
                 $result['session']['email'] = $clienteLogged['email'];
+                $result['session']['tipo'] = $clienteLogged['tipo'];
                 $response->out($result);
             }
         }else{

@@ -1,6 +1,6 @@
 <?php
-class AuthUser{
-    function allowedRole($regra){
+class Auth{
+    function allowedType($tipo){
         $response = new Output();
         //Verifia se possui ACCESS_TOKEN
         if(!isset($_SERVER['HTTP_ACCESS_TOKEN'])){
@@ -19,8 +19,8 @@ class AuthUser{
         }
 
         //Verifica se possui papel de admin
-        if(strpos($user_session['regras'], $regra) === false){
-            $result['message'] = "Sessão não possui permissão de $regra!";
+        if($user_session['tipo'] !== $tipo){
+            $result['message'] = "Sessão não possui permissão de $tipo!";
             $response->out($result, 403);
         }
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25-Maio-2022 às 19:53
+-- Tempo de geração: 08-Jun-2022 às 18:41
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.0.13
 
@@ -28,24 +28,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cliente` (
-  `id` int(11) NOT NULL,
+  `id_login` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `sobrenome` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `telefone` bigint(20) NOT NULL,
-  `cpf` bigint(20) NOT NULL,
-  `nascimento` date NOT NULL,
-  `senha` varchar(100) NOT NULL,
-  `regras` varchar(200) NOT NULL
+  `telefone` varchar(50) NOT NULL,
+  `cpf` varchar(50) NOT NULL,
+  `nascimento` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `cliente`
 --
 
-INSERT INTO `cliente` (`id`, `nome`, `sobrenome`, `email`, `telefone`, `cpf`, `nascimento`, `senha`, `regras`) VALUES
-(1, 'niconico', 'sousa', 'niconico@gmail.com', 12981146061, 22211133355, '0000-00-00', 'aaaqqqwww', ''),
-(3, 'nicolas', 'sousa', 'nicolas@gmail.com', 1299765412, 44422211122, '1900-12-01', '123123', '');
+INSERT INTO `cliente` (`id_login`, `nome`, `sobrenome`, `telefone`, `cpf`, `nascimento`) VALUES
+(35, 'nicolas', 'sousa', '123123123', '12312312312', '2005-03-02'),
+(41, 'felipe', 'souza', '12999999999', '12321231231', '2004-01-18'),
+(38, 'nicolas', 'sousa', '123123123', '222222222', '2005-03-02'),
+(39, 'nicolas', 'sousa', '123123123', '333333333', '2005-03-02');
 
 -- --------------------------------------------------------
 
@@ -55,31 +54,47 @@ INSERT INTO `cliente` (`id`, `nome`, `sobrenome`, `email`, `telefone`, `cpf`, `n
 
 CREATE TABLE `hqs` (
   `id` int(11) NOT NULL,
+  `id_vendedor` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
-  `valor` decimal(10,0) NOT NULL,
+  `valor` decimal(5,2) NOT NULL,
   `quantidade` int(11) NOT NULL,
   `descricao` varchar(200) NOT NULL,
   `imagem` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Extraindo dados da tabela `hqs`
+-- Estrutura da tabela `login`
 --
 
-INSERT INTO `hqs` (`id`, `nome`, `valor`, `quantidade`, `descricao`, `imagem`) VALUES
-(1, 'doutor estranho 4', '53', 19, 'um bom hq', 'asdasdas'),
-(2, 'vingadores edicao limitada', '50', 10, 'hq incrivel', 'asdasdasdasd'),
-(4, 'pac man', '14', 1, 'asdasdasd', 'asdasda'),
-(19, 'doutor estranho', '123', 123, '123asdas ', 'asdasdas'),
-(20, 'felipe vira wolverine  ', '35', 15, 'um historia de um mlk com o cabelona regua que quer se tornar o wolverine', 'asdasdsaasdasd');
+CREATE TABLE `login` (
+  `id` int(11) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `senha` varchar(200) NOT NULL,
+  `tipo` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `login`
+--
+
+INSERT INTO `login` (`id`, `email`, `senha`, `tipo`) VALUES
+(35, 'nicolas@gmail.com', '601f1889667efaebb33b8c12572835da3f027f78', 'cliente'),
+(36, 'nicolas2@gmail.com', '601f1889667efaebb33b8c12572835da3f027f78', 'vendedor'),
+(38, 'nicolas4@gmail.com', '601f1889667efaebb33b8c12572835da3f027f78', 'cliente'),
+(39, 'nicolas5@gmail.com', '601f1889667efaebb33b8c12572835da3f027f78', 'cliente'),
+(40, 'nicolas6@gmail.com', '601f1889667efaebb33b8c12572835da3f027f78', 'vendedor'),
+(41, 'felipinhodamassa@gmail.com', '9048ead9080d9b27d6b2b6ed363cbf8cce795f7f', 'cliente'),
+(42, 'henquinho4k@gmail.com', '601f1889667efaebb33b8c12572835da3f027f78', 'cliente');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `sessions_user`
+-- Estrutura da tabela `sessions`
 --
 
-CREATE TABLE `sessions_user` (
+CREATE TABLE `sessions` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `token` varchar(200) NOT NULL,
@@ -87,19 +102,12 @@ CREATE TABLE `sessions_user` (
   `create_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Estrutura da tabela `sessions_vend`
+-- Extraindo dados da tabela `sessions`
 --
 
-CREATE TABLE `sessions_vend` (
-  `id` int(11) NOT NULL,
-  `id_vend` int(11) NOT NULL,
-  `token` varchar(200) NOT NULL,
-  `description` varchar(200) NOT NULL,
-  `create_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `sessions` (`id`, `id_user`, `token`, `description`, `create_at`) VALUES
+(30, 41, '6a6dc8cd04ecfe04fe2ffd4db322eade', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36', '2022-06-07 17:52:31');
 
 -- --------------------------------------------------------
 
@@ -108,26 +116,23 @@ CREATE TABLE `sessions_vend` (
 --
 
 CREATE TABLE `vendedores` (
-  `id` int(11) NOT NULL,
+  `id_login` int(20) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `sobrenome` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `telefone` bigint(20) NOT NULL,
-  `cpf` bigint(20) NOT NULL,
-  `rg` bigint(20) NOT NULL,
+  `telefone` varchar(50) NOT NULL,
+  `cpf` varchar(50) NOT NULL,
+  `rg` varchar(50) NOT NULL,
   `nascimento` date NOT NULL,
-  `senha` varchar(100) NOT NULL,
-  `cep` bigint(20) NOT NULL,
-  `regras` varchar(200) NOT NULL
+  `cep` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `vendedores`
 --
 
-INSERT INTO `vendedores` (`id`, `nome`, `sobrenome`, `email`, `telefone`, `cpf`, `rg`, `nascimento`, `senha`, `cep`, `regras`) VALUES
-(1, 'niconico', 'sousa', 'niconico@gmail.com', 12981146061, 22211133355, 1112223333, '2000-05-02', '123123', 123123123, ''),
-(4, 'pac man', 'sousa', 'nicolas@gmail.com', 1299765412, 44422211122, 123123123123, '1900-12-01', 'qweqwe', 101023, '');
+INSERT INTO `vendedores` (`id_login`, `nome`, `sobrenome`, `telefone`, `cpf`, `rg`, `nascimento`, `cep`) VALUES
+(36, 'nicolas', 'sousa', '111111111111', '22222222222222', '333333333333', '2005-03-02', '101023'),
+(40, 'nicolas', 'sousa', '66666666666', '66666666666', '66666666666', '2005-03-02', '101023');
 
 --
 -- Índices para tabelas despejadas
@@ -137,88 +142,87 @@ INSERT INTO `vendedores` (`id`, `nome`, `sobrenome`, `email`, `telefone`, `cpf`,
 -- Índices para tabela `cliente`
 --
 ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `cpf` (`cpf`);
+  ADD UNIQUE KEY `cpf` (`cpf`),
+  ADD KEY `fk_login_id_user` (`id_login`);
 
 --
 -- Índices para tabela `hqs`
 --
 ALTER TABLE `hqs`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_hqs_vendedor_id` (`id_vendedor`);
 
 --
--- Índices para tabela `sessions_user`
+-- Índices para tabela `login`
 --
-ALTER TABLE `sessions_user`
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Índices para tabela `sessions`
+--
+ALTER TABLE `sessions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_user_id` (`id_user`);
-
---
--- Índices para tabela `sessions_vend`
---
-ALTER TABLE `sessions_vend`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_vend_id` (`id_vend`);
 
 --
 -- Índices para tabela `vendedores`
 --
 ALTER TABLE `vendedores`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `rg` (`rg`),
   ADD UNIQUE KEY `cpf` (`cpf`),
-  ADD UNIQUE KEY `rg` (`rg`);
+  ADD KEY `fk_login_id_vendedor` (`id_login`) USING BTREE;
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT de tabela `cliente`
---
-ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT de tabela `hqs`
 --
 ALTER TABLE `hqs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT de tabela `sessions_user`
+-- AUTO_INCREMENT de tabela `login`
 --
-ALTER TABLE `sessions_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `login`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
--- AUTO_INCREMENT de tabela `sessions_vend`
+-- AUTO_INCREMENT de tabela `sessions`
 --
-ALTER TABLE `sessions_vend`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `vendedores`
---
-ALTER TABLE `vendedores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `sessions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Restrições para despejos de tabelas
 --
 
 --
--- Limitadores para a tabela `sessions_user`
+-- Limitadores para a tabela `cliente`
 --
-ALTER TABLE `sessions_user`
-  ADD CONSTRAINT `fk_user_id` FOREIGN KEY (`id_user`) REFERENCES `cliente` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `cliente`
+  ADD CONSTRAINT `fk_login_id_user` FOREIGN KEY (`id_login`) REFERENCES `login` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Limitadores para a tabela `sessions_vend`
+-- Limitadores para a tabela `hqs`
 --
-ALTER TABLE `sessions_vend`
-  ADD CONSTRAINT `fk_vend_id` FOREIGN KEY (`id_vend`) REFERENCES `vendedores` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `hqs`
+  ADD CONSTRAINT `fk_hqs_vendedor_id` FOREIGN KEY (`id_vendedor`) REFERENCES `vendedores` (`id_login`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `sessions`
+--
+ALTER TABLE `sessions`
+  ADD CONSTRAINT `fk_user_id` FOREIGN KEY (`id_user`) REFERENCES `login` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `vendedores`
+--
+ALTER TABLE `vendedores`
+  ADD CONSTRAINT `fk_login_id` FOREIGN KEY (`id_login`) REFERENCES `login` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

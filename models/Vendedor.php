@@ -23,7 +23,7 @@ class Vendedor{
     function create(){
         $db = new Database();
         try{
-            $stmt = $db->conn->prepare("INSERT INTO vendedores (id_login, nome, sobrenome, telefone, cpf, rg, nascimento, cep) VALUES (:id_login, :nome, :sobrenome, :telefone, :cpf, :rg, :nascimento, :cep);");
+            $stmt = $db->conn->prepare("INSERT INTO vendedor (id_login, nome, sobrenome, telefone, cpf, rg, nascimento, cep) VALUES (:id_login, :nome, :sobrenome, :telefone, :cpf, :rg, :nascimento, :cep);");
             $stmt->bindParam(':id_login' , $this->id);
             $stmt->bindParam(':nome' , $this->nome);
             $stmt->bindParam(':sobrenome' , $this->sobrenome);
@@ -62,7 +62,7 @@ class Vendedor{
     function update(){
         $db = new DataBase();
         try{
-            $stmt = $db->conn->prepare("UPDATE vendedores SET nome=:nome,sobrenome=:sobrenome, telefone=:telefone, cpf=:cpf, rg=:rg, nascimento=:nascimento, cep=:cep WHERE id_login= :id_login;");
+            $stmt = $db->conn->prepare("UPDATE vendedor SET nome=:nome,sobrenome=:sobrenome, telefone=:telefone, cpf=:cpf, rg=:rg, nascimento=:nascimento, cep=:cep WHERE id_login= :id_login;");
             $stmt->bindParam(':id_login' , $this->id);
             $stmt->bindParam(':nome' , $this->nome);
             $stmt->bindParam(':sobrenome' , $this->sobrenome);
@@ -84,7 +84,7 @@ class Vendedor{
     function selectAll(){
         $db = new DataBase();
         try{
-            $stmt = $db->conn->prepare("SELECT * FROM vendedores");
+            $stmt = $db->conn->prepare("SELECT * FROM vendedor");
             $stmt->execute();
             $result= $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -100,7 +100,7 @@ class Vendedor{
     function selectById(){
         $db = new DataBase();
         try{
-            $stmt = $db->conn->prepare("SELECT * FROM vendedores WHERE id_login=:id_login;");
+            $stmt = $db->conn->prepare("SELECT * FROM vendedor WHERE id_login=:id_login;");
             $stmt->bindParam(':id_login' , $this->id);
             $stmt->execute();
             $result= $stmt->fetch(PDO::FETCH_ASSOC);

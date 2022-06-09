@@ -16,6 +16,7 @@ class AuthController{
             $token = md5(uniqid($clienteLogged['id'], true));
             $session = new Session($clienteLogged['id'], $token, $description);
             if($session->create()){
+                $result['session']['id'] = $clienteLogged['id'];
                 $result['session']['token'] = $token;
                 $result['session']['email'] = $clienteLogged['email'];
                 $result['session']['tipo'] = $clienteLogged['tipo'];

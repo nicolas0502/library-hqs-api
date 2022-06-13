@@ -57,11 +57,9 @@ class ClienteController{
         $id = $_POST['id'];
         $nome= $_POST['nome'];
         $sobrenome= $_POST['sobrenome'];
-        $email= $_POST['email'];
         $telefone= $_POST['telefone'];
         $cpf= $_POST['cpf'];
         $nascimento= $_POST['nascimento'];
-        $senha= $_POST['senha'];
         
         $cliente = new Cliente($id, $nome, $sobrenome, $telefone, $cpf, $nascimento);   
         $cliente->update();

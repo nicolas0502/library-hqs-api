@@ -72,14 +72,14 @@ class VendedorController{
         $vendedor->update();
 
         $result['message'] = "Update do Vendedor foi feito Com Sucesso ";
-        $result['cliente']['id'] = $id;
-        $result['cliente']['nome'] = $nome;
-        $result['cliente']['sobrenome'] = $sobrenome;
-        $result['cliente']['telefone'] = $telefone;
-        $result['cliente']['cpf'] = $cpf;
-        $result['cliente']['rg'] = $rg;
-        $result['cliente']['nascimento'] = $nascimento;
-        $result['cliente']['cep'] = $cep;
+        $result['vendedor']['id'] = $id;
+        $result['vendedor']['nome'] = $nome;
+        $result['vendedor']['sobrenome'] = $sobrenome;
+        $result['vendedor']['telefone'] = $telefone;
+        $result['vendedor']['cpf'] = $cpf;
+        $result['vendedor']['rg'] = $rg;
+        $result['vendedor']['nascimento'] = $nascimento;
+        $result['vendedor']['cep'] = $cep;
         $response->out($result); 
     }
 

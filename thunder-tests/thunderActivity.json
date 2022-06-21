@@ -201,16 +201,16 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost/LP2/api/hq/select-by-vendedor/?id=19",
-    "url": "http://localhost/LP2/api/hq/select-by-vendedor/?id=19",
+    "url": "http://localhost/LP2/api/cliente/select-by-id/?id=47",
     "method": "GET",
     "sortNum": 0,
     "created": "2022-06-07T19:02:52.560Z",
-    "modified": "2022-06-07T19:02:52.575Z",
+    "modified": "2022-06-09T20:10:52.838Z",
     "headers": [],
     "params": [
       {
         "name": "id",
-        "value": "19",
+        "value": "47",
         "isPath": false
       }
     ],

@@ -25,7 +25,7 @@ class VendedorController{
         $vendedor->create();   
 
         //Saída
-        $result['message'] = "O Vendedor foi Cadastrado Com Sucesso ";
+        $result['message'] = "O Vendedor foi Cadastrado Com Sucesso!";
         $result['vendedor']['id'] = $id;
         $result['vendedor']['nome'] = $nome;
         $result['vendedor']['sobrenome'] = $sobrenome;
@@ -50,7 +50,7 @@ class VendedorController{
         $vendedor = new Vendedor($id, null, null, null, null, null, null, null);         
         $vendedor->delete();
 
-        $result['message'] = "O Vendedor foi Deletado Com Sucesso ";
+        $result['message'] = "O Vendedor foi Deletado Com Sucesso!";
         $result['user']['id'] = $id;
         $response->out($result);
     }
@@ -71,7 +71,7 @@ class VendedorController{
         $vendedor = new Vendedor($id, $nome, $sobrenome,$telefone, $cpf, $rg, $nascimento, $cep);   
         $vendedor->update();
 
-        $result['message'] = "Update do Vendedor foi feito Com Sucesso ";
+        $result['message'] = "O Update do Vendedor Foi Feito Com Sucesso!";
         $result['vendedor']['id'] = $id;
         $result['vendedor']['nome'] = $nome;
         $result['vendedor']['sobrenome'] = $sobrenome;

@@ -17,6 +17,7 @@ class AuthController{
             $token = md5(uniqid($clienteLogged['id'], true));
             $session = new Session($clienteLogged['id'], $token, $description);
             if($session->create()){
+                $result['message'] = "Você Foi Logado Com Sucesso!";
                 $result['session']['id'] = $clienteLogged['id'];
                 $result['session']['token'] = $token;
                 $result['session']['email'] = $clienteLogged['email'];
@@ -38,10 +39,10 @@ class AuthController{
         $session = new Session(null, $token, null);
         
         if($session->delete()){
-            $result['message'] = "Sessão encerrada! Volte sempre!";
+            $result['message'] = "Sessão Encerrada! Volte Sempre!";
             $response->out($result);
         }else{
-            $result['message'] = "Sessão não encontrada!";
+            $result['message'] = "Sessão Não Encontrada!";
             $response->out($result, 403);
         }
     }

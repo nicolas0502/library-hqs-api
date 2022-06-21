@@ -23,7 +23,7 @@ class ClienteController{
         $cliente->create();   
 
         //Saída
-        $result['message'] = "O Cliente foi Cadastrado Com Sucesso ";
+        $result['message'] = "O Cadastro Foi Feito Com Sucesso!";
         $result['cliente']['id'] = $id;
         $result['cliente']['nome'] = $nome;
         $result['cliente']['sobrenome'] = $sobrenome;
@@ -45,7 +45,7 @@ class ClienteController{
         $cliente = new Cliente($id, null, null, null, null, null);         
         $cliente->delete();
 
-        $result['message'] = "O Clinete foi Deletado Com Sucesso ";
+        $result['message'] = "O Cliente foi Deletado Com Sucesso!";
         $result['user']['id'] = $id;
         $response->out($result);
     }
@@ -64,7 +64,7 @@ class ClienteController{
         $cliente = new Cliente($id, $nome, $sobrenome, $telefone, $cpf, $nascimento);   
         $cliente->update();
 
-        $result['message'] = "Update do Cliente foi feito Com Sucesso ";
+        $result['message'] = "O Update Foi Feito Com Sucesso!";
         $result['cliente']['id'] = $id;
         $result['cliente']['nome'] = $nome;
         $result['cliente']['sobrenome'] = $sobrenome;

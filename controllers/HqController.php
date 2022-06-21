@@ -22,7 +22,7 @@ class HqController{
         $id = $hq->create();   
 
         //Saída
-        $result['message'] = "O HQ foi Cadastrado Com Sucesso ";
+        $result['message'] = "A HQ foi Cadastrada Com Sucesso!";
         $result['hq']['id'] = $id;
         $result['hq']['nome'] = $nome;
         $result['hq']['valor'] = $valor;
@@ -46,7 +46,7 @@ class HqController{
         $hq = new Hq($id, $id_vendedor, null, null, null, null, null);         
         $hq->delete();
 
-        $result['message'] = "O HQ foi Deletado Com Sucesso ";
+        $result['message'] = "A HQ foi Deletada Com Sucesso!";
         $result['hq']['id'] = $id;
         $response->out($result);
     }
@@ -69,7 +69,7 @@ class HqController{
         $hq = new Hq($id, $id_vendedor, $nome, $valor, $quantidade, $descricao, $imagem);   
         $hq->update();
 
-        $result['message'] = "Update do HQ foi feito Com Sucesso ";
+        $result['message'] = "O Update Da HQ Foi Feito Com Sucesso!";
         $result['hq']['id'] = $id;
         $result['hq']['nome'] = $nome;
         $result['hq']['valor'] = $valor;

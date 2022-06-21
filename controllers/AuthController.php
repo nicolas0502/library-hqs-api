@@ -6,10 +6,11 @@ class AuthController{
         $response->allowedMethod('POST');
         $email = $_POST['email'];
         $pass = $_POST['senha'];
+        $tipo = $_POST['tipo'];
 
         $description = $_SERVER['HTTP_USER_AGENT'];
 
-        $cliente = new Login(null, $email, sha1($pass), null);
+        $cliente = new Login(null, $email, sha1($pass), $tipo);
         $clienteLogged = $cliente->login();
         
         if($clienteLogged){

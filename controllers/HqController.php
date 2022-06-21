@@ -69,7 +69,7 @@ class HqController{
         $hq = new Hq($id, $id_vendedor, $nome, $valor, $quantidade, $descricao, $imagem);   
         $hq->update();
 
-        $result['message'] = "O Update Da HQ Foi Feito Com Sucesso!";
+        $result['message'] = "A Edição Da HQ Foi Feita Com Sucesso!";
         $result['hq']['id'] = $id;
         $result['hq']['nome'] = $nome;
         $result['hq']['valor'] = $valor;

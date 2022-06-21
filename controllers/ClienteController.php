@@ -46,7 +46,7 @@ class ClienteController{
         $cliente->delete();
 
         $result['message'] = "O Cliente foi Deletado Com Sucesso!";
-        $result['user']['id'] = $id;
+        $result['cliente']['id'] = $id;
         $response->out($result);
     }
 
@@ -64,7 +64,7 @@ class ClienteController{
         $cliente = new Cliente($id, $nome, $sobrenome, $telefone, $cpf, $nascimento);   
         $cliente->update();
 
-        $result['message'] = "O Update Foi Feito Com Sucesso!";
+        $result['message'] = "A Edição Foi Feita Com Sucesso!";
         $result['cliente']['id'] = $id;
         $result['cliente']['nome'] = $nome;
         $result['cliente']['sobrenome'] = $sobrenome;
